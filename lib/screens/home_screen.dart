@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../models/quote.dart';
 import '../services/quote_service.dart';
+import '../widgets/quote_card.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -68,24 +70,7 @@ class _HomeScreenState extends State<HomeScreen> {
               : Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                '\"${_quote!.content}\"',
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontStyle: FontStyle.italic,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 24), // espacio entre frase y autor
-              Text(
-                '— ${_quote!.author}',
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black,
-                ),
-                textAlign: TextAlign.center,
-              ),
+              QuoteCard(quote: _quote!)
             ],
           ),
         ),
